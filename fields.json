@@ -1,0 +1,243 @@
+{
+    "$schema": "https://cdn.statically.io/gh/voguh/unichat/1.4.0-beta.4/widgets/fields-schema.json",
+    "displayMode": {
+        "type": "dropdown",
+        "label": "Modo de exibição",
+        "value": "mixed",
+        "options": {
+            "left": "Esquerda",
+            "mixed": "Alternado",
+            "right": "Direita"
+        }
+    },
+    "entryAnimation": {
+        "type": "dropdown",
+        "label": "Animação de entrada",
+        "value": "fadeIn",
+        "options": {
+            "backInDown": "Back In Down",
+            "backInLeft": "Back In Left",
+            "backInRight": "Back In Right",
+            "backInUp": "Back In Up",
+            "bounceIn": "Bounce In",
+            "bounceInDown": "Bounce In Down",
+            "bounceInLeft": "Bounce In Left",
+            "bounceInRight": "Bounce In Right",
+            "bounceInUp": "Bounce In Up",
+            "fadeIn": "Fade In",
+            "fadeInDown": "Fade In Down",
+            "fadeInLeft": "Fade In Left",
+            "fadeInRight": "Fade In Right",
+            "fadeInUp": "Fade In Up"
+        }
+    },
+    "entryAnimationDuration": {
+        "type": "number",
+        "label": "Duração da animação de entrada (ms)",
+        "value": 250
+    },
+    "messageAvatar": {
+        "type": "dropdown",
+        "label": "Avatar",
+        "value": "show-avatar",
+        "options": {
+            "show-avatar": "Mostrar avatar",
+            "hide-avatar": "Esconder avatar"
+        }
+    },
+    "accentColor": {
+        "type": "colorpicker",
+        "label": "Cor de destaque",
+        "value": "#fcc419"
+    },
+
+
+
+    "emoteSize": {
+        "type": "number",
+        "group": "Mensagem",
+        "label": "Tamanho do Emote",
+        "value": 28
+    },
+    "defaultBackgroundColor": {
+        "type": "colorpicker",
+        "group": "Mensagem",
+        "label": "Cor de fundo padrão",
+        "value": "#212529"
+    },
+    "defaultTextColor": {
+        "type": "colorpicker",
+        "group": "Mensagem",
+        "label": "Cor do texto padrão",
+        "value": "#f8f9fa"
+    },
+
+
+
+    "badgeSize": {
+        "type": "number",
+        "group": "Etiqueta do usuário",
+        "label": "Tamanho da Badge",
+        "value": 18
+    },
+    "pillBackgroundColor": {
+        "type": "colorpicker",
+        "group": "Etiqueta do usuário",
+        "label": "Cor de fundo",
+        "value": "#f8f9fa"
+    },
+    "pillTextColor": {
+        "type": "colorpicker",
+        "group": "Etiqueta do usuário",
+        "label": "Cor do texto",
+        "value": "#212529"
+    },
+    "sponsorPillBackgroundColor": {
+        "type": "colorpicker",
+        "group": "Etiqueta do usuário",
+        "label": "Cor de fundo (Sponsor)",
+        "value": "#5f3dc4"
+    },
+    "sponsorPillTextColor": {
+        "type": "colorpicker",
+        "group": "Etiqueta do usuário",
+        "label": "Cor do texto (Sponsor)",
+        "value": "#f8f9fa"
+    },
+    "moderatorPillBackgroundColor": {
+        "type": "colorpicker",
+        "group": "Etiqueta do usuário",
+        "label": "Cor de fundo (Moderator)",
+        "value": "#364fc7"
+    },
+    "moderatorPillTextColor": {
+        "type": "colorpicker",
+        "group": "Etiqueta do usuário",
+        "label": "Cor do texto (Moderator)",
+        "value": "#f8f9fa"
+    },
+    "broadcasterPillBackgroundColor": {
+        "type": "colorpicker",
+        "group": "Etiqueta do usuário",
+        "label": "Cor de fundo (Broadcaster)",
+        "value": "#12b886"
+    },
+    "broadcasterPillTextColor": {
+        "type": "colorpicker",
+        "group": "Etiqueta do usuário",
+        "label": "Cor do texto (Broadcaster)",
+        "value": "#f8f9fa"
+    },
+
+
+
+    "donateMessageText": {
+        "type": "textarea",
+        "group": "Evento de Donate",
+        "label": "Message template",
+        "value": "Mandou {currency}{value}!"
+    },
+    "donateBackgroundColor": {
+        "type": "colorpicker",
+        "group": "Evento de Donate",
+        "label": "Cor de fundo",
+        "value": "#1971c2"
+    },
+    "donateTextColor": {
+        "type": "colorpicker",
+        "group": "Evento de Donate",
+        "label": "Cor do texto",
+        "value": "#f8f9fa"
+    },
+
+
+
+    "sponsorMessageText": {
+        "type": "textarea",
+        "group": "Evento de Sponsor",
+        "label": "Message template",
+        "value": "Se tornou membro por {months} meses!"
+    },
+    "sponsorBackgroundColor": {
+        "type": "colorpicker",
+        "group": "Evento de Sponsor",
+        "label": "Cor de fundo",
+        "value": "#5f3dc4"
+    },
+    "sponsorTextColor": {
+        "type": "colorpicker",
+        "group": "Evento de Sponsor",
+        "label": "Cor do texto",
+        "value": "#f8f9fa"
+    },
+
+
+
+    "sponsorGiftMessageText": {
+        "type": "textarea",
+        "group": "Evento de Sponsor Gift",
+        "label": "Message template",
+        "value": "Mandou {count} membros de presente!"
+    },
+    "sponsorGiftBackgroundColor": {
+        "type": "colorpicker",
+        "group": "Evento de Sponsor Gift",
+        "label": "Cor de fundo",
+        "value": "#f08c00"
+    },
+    "sponsorGiftTextColor": {
+        "type": "colorpicker",
+        "group": "Evento de Sponsor Gift",
+        "label": "Cor do texto",
+        "value": "#212529"
+    },
+
+
+
+    "raidMessageText": {
+        "type": "textarea",
+        "group": "Evento de Raid",
+        "label": "Message template",
+        "value": "Chegou com {viewer_count} espectadores!"
+    },
+    "raidViewerCountDefault": {
+        "type": "text",
+        "group": "Evento de Raid",
+        "label": "Viewer count placeholder",
+        "description": "Valor usado quando o contador de espectadores não está disponível.",
+        "value": "seus"
+    },
+    "raidBackgroundColor": {
+        "type": "colorpicker",
+        "group": "Evento de Raid",
+        "label": "Cor de fundo",
+        "value": "#66a80f"
+    },
+    "raidTextColor": {
+        "type": "colorpicker",
+        "group": "Evento de Raid",
+        "label": "Cor do texto",
+        "value": "#212529"
+    },
+
+
+
+    "redemptionMessageText": {
+        "type": "textarea",
+        "group": "Evento de Redemption",
+        "label": "Message template",
+        "value": "Resgatou <span>{reward_title}</span>!"
+    },
+    "redemptionBackgroundColor": {
+        "type": "colorpicker",
+        "group": "Evento de Redemption",
+        "label": "Cor de fundo",
+        "value": "#339af0"
+    },
+    "redemptionTextColor": {
+        "type": "colorpicker",
+        "group": "Evento de Redemption",
+        "label": "Cor do texto",
+        "value": "#212529"
+    }
+}

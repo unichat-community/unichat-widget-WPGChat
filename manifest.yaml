@@ -1,0 +1,8 @@
+name: WPGChat
+description: A whatsapp group themed chat widget for UniChat.
+version: 1.1.0
+author: Voguh
+license: MIT
+homepage: https://github.com/unichat-community/unichat-widget-WPGChat
+dependencies:
+  - unichat@[1.4.0,)

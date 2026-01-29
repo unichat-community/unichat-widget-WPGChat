@@ -1,0 +1,512 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+:root {
+
+    /* <<== FIELDS TO CSS VARIABLES ==>> */
+    --entry-animation: {{entryAnimation}} {{entryAnimationDuration}}ms ease-in;
+    --accent-color: {{accentColor}};
+
+    --emote-size: {{emoteSize}}px;
+    --default-background-color: {{defaultBackgroundColor}};
+    --default-text-color: {{defaultTextColor}};
+
+    --badge-size: {{badgeSize}}px;
+    --pill-background-color: {{pillBackgroundColor}};
+    --pill-text-color: {{pillTextColor}};
+    --sponsor-pill-background-color: {{sponsorPillBackgroundColor}};
+    --sponsor-pill-text-color: {{sponsorPillTextColor}};
+    --moderator-pill-background-color: {{moderatorPillBackgroundColor}};
+    --moderator-pill-text-color: {{moderatorPillTextColor}};
+    --broadcaster-pill-background-color: {{broadcasterPillBackgroundColor}};
+    --broadcaster-pill-text-color: {{broadcasterPillTextColor}};
+
+    --donate-background-color: {{donateBackgroundColor}};
+    --donate-text-color: {{donateTextColor}};
+
+    --sponsor-background-color: {{sponsorBackgroundColor}};
+    --sponsor-text-color: {{sponsorTextColor}};
+
+    --sponsor-gift-background-color: {{sponsorGiftBackgroundColor}};
+    --sponsor-gift-text-color: {{sponsorGiftTextColor}};
+
+    --raid-background-color: {{raidBackgroundColor}};
+    --raid-text-color: {{raidTextColor}};
+
+    --redemption-background-color: {{redemptionBackgroundColor}};
+    --redemption-text-color: {{redemptionTextColor}};
+    /* <<== END FIELDS TO CSS VARIABLES ==>> */
+}
+
+html, body {
+    font-family: "Nunito", sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+#main-container {
+    position: absolute;
+    inset: 0;
+    padding: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/* <================================================[ SHARED STYLE ]================================================> */
+#main-container > div {
+    position: relative;
+    animation: var(--entry-animation);
+}
+
+#main-container > div:not(:first-child) {
+    margin-top: 8px;
+}
+/* <==============================================[ END SHARED STYLE ]==============================================> */
+
+/* <============================================[ SIMPLE MESSAGE STYLE ]============================================> */
+#main-container > .message-item {
+    --author-pill-bg: var(--pill-background-color);
+    --author-pill-color: var(--pill-text-color);
+    margin-top: calc(((var(--badge-size) + 8px) / 2) + 8px) !important;
+}
+
+#main-container > .message-item.message-item--SPONSOR {
+    --author-pill-bg: var(--sponsor-pill-background-color);
+    --author-pill-color: var(--sponsor-pill-text-color);
+}
+
+#main-container > .message-item.message-item--MODERATOR {
+    --author-pill-bg: var(--moderator-pill-background-color);
+    --author-pill-color: var(--moderator-pill-text-color);
+}
+
+#main-container > .message-item.message-item--BROADCASTER {
+    --author-pill-bg: var(--broadcaster-pill-background-color);
+    --author-pill-color: var(--broadcaster-pill-text-color);
+}
+
+#main-container > .message-item > .author-avatar {
+    position: absolute;
+    bottom: 0;
+    width: calc(var(--badge-size) + 16px);
+    height: calc(var(--badge-size) + 16px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-container > .message-item.left > .author-avatar {
+    left: 4px;
+}
+
+#main-container > .message-item.right > .author-avatar {
+    right: 4px;
+}
+
+#main-container > .message-item > .author-avatar > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#main-container > .message-item:not(.show-avatar) > .author-avatar {
+    display: none;
+}
+
+#main-container > .message-item > .author-meta {
+    width: fit-content;
+    max-width: calc(100vw - 64px);
+    position: absolute;
+    top: 0;
+    left: 8px;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background: var(--author-pill-bg);
+
+    overflow: hidden;
+}
+
+#main-container > .message-item.left.show-avatar > .author-meta {
+    left: calc((var(--badge-size) + 16px) + 16px + 8px);
+}
+
+#main-container > .message-item.left:not(.show-avatar) > .author-meta {
+    left: calc(16px + 8px);
+}
+
+#main-container > .message-item > .author-meta > .badges {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+#main-container > .message-item > .author-meta > .badges:empty {
+    display: none;
+}
+
+#main-container > .message-item > .author-meta > .badges > img {
+    width: var(--badge-size);
+    height: var(--badge-size);
+    border-radius: 2px;
+}
+
+#main-container > .message-item > .author-meta > .name {
+    flex: 1 1 auto;
+    color: var(--author-pill-color);
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-clamp: 1;
+    white-space: nowrap;
+
+}
+
+#main-container > .message-item > .message {
+    padding: calc(((var(--badge-size) + 8px) / 2) + 8px) 8px 8px 8px;
+    border-radius: 4px;
+    background: var(--default-background-color);
+    color: var(--default-text-color);
+    white-space: normal;
+    word-break: break-word;
+}
+
+#main-container > .message-item.left.show-avatar > .message {
+    margin-left: calc((var(--badge-size) + 16px) + 16px);
+}
+
+#main-container > .message-item.left:not(.show-avatar) > .message {
+    margin-left: 16px;
+}
+
+#main-container > .message-item.right.show-avatar > .message {
+    margin-right: calc((var(--badge-size) + 16px) + 16px);
+}
+
+#main-container > .message-item.right:not(.show-avatar) > .message {
+    margin-right: 16px;
+}
+
+#main-container > .message-item > .message::before {
+    content: "";
+    position: absolute;
+    bottom: calc((var(--badge-size) + 8px) / 2);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid var(--default-background-color);
+}
+
+#main-container > .message-item.left.show-avatar > .message::before {
+    left: calc((var(--badge-size) + 16px) + 4px);
+    transform: rotate(-90deg);
+}
+
+#main-container > .message-item.left:not(.show-avatar) > .message::before {
+    left: 4px;
+    transform: rotate(-90deg);
+}
+
+#main-container > .message-item.right.show-avatar > .message::before {
+    right: calc((var(--badge-size) + 16px) + 4px);
+    transform: rotate(90deg);
+}
+
+#main-container > .message-item.right:not(.show-avatar) > .message::before {
+    right: 4px;
+    transform: rotate(90deg);
+}
+
+#main-container > .message-item > .message > img {
+    height: var(--emote-size);
+    vertical-align: middle;
+}
+/* <==========================================[ END SIMPLE MESSAGE STYLE ]==========================================> */
+
+/* <============================================[ DONATE MESSAGE STYLE ]============================================> */
+#main-container > .donate-item {
+    background: var(--donate-background-color);
+    color: var(--donate-text-color);
+    border-radius: 4px;
+}
+
+#main-container > .donate-item > .element-item-header {
+    background: rgba(0, 0, 0, 0.25);
+    padding: 8px;
+    display: flex;
+    gap: 8px;
+}
+
+#main-container > .donate-item > .element-item-header > .author-photo {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-container > .donate-item > .element-item-header > .author-photo > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#main-container > .donate-item > .element-item-header > .author-meta {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+}
+
+#main-container > .donate-item > .element-item-header > .author-meta > .title {
+    font-weight: bold;
+    font-size: 1.25em;
+}
+
+#main-container > .donate-item > .element-item-header > .author-meta > .subtitle {
+    font-weight: bolder;
+    opacity: 0.75;
+}
+
+#main-container > .donate-item > .element-item-body {
+    padding: 8px;
+    white-space: normal;
+    word-break: break-word;
+}
+
+#main-container > .donate-item > .element-item-body:empty {
+    display: none;
+}
+
+#main-container > .donate-item > .element-item-body > img {
+    height: var(--emote-size);
+    vertical-align: middle;
+}
+/* <==========================================[ END DONATE MESSAGE STYLE ]==========================================> */
+
+/* <============================================[ SPONSOR MESSAGE STYLE ]============================================> */
+#main-container > .sponsor-item {
+    background: var(--sponsor-background-color);
+    color: var(--sponsor-text-color);
+    border-radius: 4px;
+}
+
+#main-container > .sponsor-item > .element-item-header {
+    background: rgba(0, 0, 0, 0.25);
+    padding: 8px;
+    display: flex;
+    gap: 8px;
+}
+
+#main-container > .sponsor-item > .element-item-header > .author-photo {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-container > .sponsor-item > .element-item-header > .author-photo > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#main-container > .sponsor-item > .element-item-header > .author-meta {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+}
+
+#main-container > .sponsor-item > .element-item-header > .author-meta > .title {
+    font-weight: bold;
+    font-size: 1.25em;
+}
+
+#main-container > .sponsor-item > .element-item-header > .author-meta > .subtitle {
+    font-weight: bolder;
+    opacity: 0.75;
+}
+
+#main-container > .sponsor-item > .element-item-body {
+    padding: 8px;
+    white-space: normal;
+    word-break: break-word;
+}
+
+#main-container > .sponsor-item > .element-item-body:empty {
+    display: none;
+}
+
+#main-container > .sponsor-item > .element-item-body > img {
+    height: var(--emote-size);
+    vertical-align: middle;
+}
+/* <==========================================[ END SPONSOR MESSAGE STYLE ]==========================================> */
+
+/* <=========================================[ SPONSOR GIFT MESSAGE STYLE ]=========================================> */
+#main-container > .spogift-item {
+    background: var(--sponsor-gift-background-color);
+    color: var(--sponsor-gift-text-color);
+    border-radius: 4px;
+}
+
+#main-container > .spogift-item > .element-item-header {
+    padding: 8px;
+    display: flex;
+    gap: 8px;
+}
+
+#main-container > .spogift-item > .element-item-header > .author-photo {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-container > .spogift-item > .element-item-header > .author-photo > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#main-container > .spogift-item > .element-item-header > .author-meta {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+}
+
+#main-container > .spogift-item > .element-item-header > .author-meta > .title {
+    font-weight: bold;
+    font-size: 1.25em;
+}
+
+#main-container > .spogift-item > .element-item-header > .author-meta > .subtitle {
+    font-weight: bolder;
+    opacity: 0.75;
+}
+/* <=======================================[ END SPONSOR GIFT MESSAGE STYLE ]=======================================> */
+
+/* <=============================================[ RAID MESSAGE STYLE ]=============================================> */
+#main-container > .raid-item {
+    background: var(--raid-background-color);
+    color: var(--raid-text-color);
+    border-radius: 4px;
+}
+
+#main-container > .raid-item > .element-item-header {
+    padding: 8px;
+    display: flex;
+    gap: 8px;
+}
+
+#main-container > .raid-item > .element-item-header > .author-photo {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-container > .raid-item > .element-item-header > .author-photo > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#main-container > .raid-item > .element-item-header > .author-meta {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+}
+
+#main-container > .raid-item > .element-item-header > .author-meta > .title {
+    font-weight: bold;
+    font-size: 1.25em;
+}
+
+#main-container > .raid-item > .element-item-header > .author-meta > .subtitle {
+    font-weight: bolder;
+    opacity: 0.75;
+}
+/* <===========================================[ END RAID MESSAGE STYLE ]===========================================> */
+
+/* <==========================================[ REDEMPTION MESSAGE STYLE ]==========================================> */
+#main-container > .redemption-item {
+    background: var(--redemption-background-color);
+    color: var(--redemption-text-color);
+    border-radius: 4px;
+}
+
+#main-container > .redemption-item > .element-item-header {
+    background: rgba(0, 0, 0, 0.25);
+    padding: 8px;
+    display: flex;
+    gap: 8px;
+}
+
+#main-container > .redemption-item > .element-item-header > .author-photo {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-container > .redemption-item > .element-item-header > .author-photo > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#main-container > .redemption-item > .element-item-header > .author-meta {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+}
+
+#main-container > .redemption-item > .element-item-header > .author-meta > .title {
+    font-weight: bold;
+    font-size: 1.25em;
+}
+
+#main-container > .redemption-item > .element-item-header > .author-meta > .subtitle {
+    font-weight: bolder;
+    opacity: 0.75;
+}
+
+#main-container > .redemption-item > .element-item-body {
+    padding: 8px;
+    white-space: normal;
+    word-break: break-word;
+}
+
+#main-container > .redemption-item > .element-item-body:empty {
+    display: none;
+}
+
+#main-container > .redemption-item > .element-item-body > img {
+    height: var(--emote-size);
+    vertical-align: middle;
+}
+/* <========================================[ END REDEMPTION MESSAGE STYLE ]========================================> */
