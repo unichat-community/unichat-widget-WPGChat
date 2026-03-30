@@ -1,11 +1,8 @@
 # UniChat Widget - WPGChat
 
-<p align="center">
-  <a href="./README.md">🇺🇸 English</a> |
-  <a href="./README.pt-br.md">🇧🇷 Português</a>
-</p>
+[🇺🇸 English](./README.md) | [🇧🇷 Português](./README.pt-br.md)
 
-A WhatsApp group themed chat widget for **UniChat**.
+A WhatsApp group themed chat widget for [**UniChat**](https://codeberg.org/unichat/unichat).
 
 Supports the following events:
 - Message Removed
